@@ -1,5 +1,13 @@
 function findFirstDuplicate(arr) {
-  // type your code here
+  let memo = {}
+  for(let i = 0; i < arr.length; i++){
+    if (memo[arr[i]]){
+      return arr[i]
+    } else {
+      memo[arr[i]] = true
+    }
+  }
+  return -1
 }
 
 if (require.main === module) {
@@ -14,6 +22,11 @@ if (require.main === module) {
 }
 
 module.exports = findFirstDuplicate;
+
+//1. create an object
+//2. iterate through the array adding keys for each array value
+//3. if the key already exists, return the value
+//4. after the loop if no return, return -1
 
 // Please add your pseudocode to this file
 // And a written explanation of your solution
